@@ -4,7 +4,7 @@ import type { PreferencesStore } from '@shared/types/main/store'
 
 const isWin = platform() === 'win32'
 
-const defaultPath = isWin ? homedir() + '\\massCode' : homedir() + '/massCode'
+const defaultPath = isWin ? homedir() + '\\CodeSnippets' : homedir() + '/CodeSnippets'
 const backupPath = isWin ? `${defaultPath}\\backups` : `${defaultPath}/backups`
 
 export default new Store<PreferencesStore>({
@@ -37,6 +37,6 @@ export default new Store<PreferencesStore>({
       presentationScale: 1.3,
       codeRenderer: 'highlight.js'
     },
-    language: 'en'
+    language: 'zh_CN'
   }
 })

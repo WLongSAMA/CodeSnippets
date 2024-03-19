@@ -1,7 +1,7 @@
 {
-  "name": "masscode",
-  "productName": "massCode",
-  "version": "3.11.0",
+  "name": "CodeSnippets",
+  "productName": "CodeSnippets",
+  "version": "4.0.1",
   "description": "A free and open source code snippets manager for developers",
   "license": "AGPL-3.0",
   "main": "build/src/main/index.js",
@@ -23,10 +23,10 @@
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
-  "repository": "https://github.com/massCodeIO/massCode",
+  "repository": "https://github.com/WLongSAMA/CodeSnippets",
   "author": {
-    "name": "Anton Reshetov",
-    "url": "https://github.com/antonreshetov"
+    "name": "WLong",
+    "url": "https://github.com/WLongSAMA"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [

@@ -8,7 +8,7 @@ export const subscribeToNotification = () => {
     return new Promise(resolve => {
       const { body } = payload
       const notification = new Notification({
-        title: 'massCode',
+        title: 'CodeSnippets',
         body
       })
       notification.show()

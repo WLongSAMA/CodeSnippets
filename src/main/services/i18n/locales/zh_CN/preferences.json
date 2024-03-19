@@ -20,7 +20,7 @@
     "highlightGutter": "高亮光标所在行行号",
     "matchBrackets": "括号匹配",
     "prettier": {
-      "label": "Prettier",
+      "label": "Prettier 代码美化",
       "trailingComma": {
         "label": "尾后逗号",
         "none": "None",

@@ -13,8 +13,8 @@ const year = new Date().getFullYear()
 
 const aboutApp = () => {
   dialog.showMessageBox(BrowserWindow.getFocusedWindow()!, {
-    title: 'massCode',
-    message: 'massCode',
+    title: 'CodeSnippets',
+    message: 'CodeSnippets',
     type: 'info',
     detail: `
       Version: ${version}
@@ -167,7 +167,7 @@ const helpMenu: MenuItemConstructorOptions[] = [
   {
     label: i18n.t('menu:help.viewInGitHub'),
     click: () => {
-      shell.openExternal('https://github.com/massCodeIO/massCode')
+      shell.openExternal('https://github.com/WLongSAMA/CodeSnippets')
     }
   },
   {
@@ -182,14 +182,14 @@ const helpMenu: MenuItemConstructorOptions[] = [
     label: i18n.t('menu:help.reportIssue'),
     click: () => {
       shell.openExternal(
-        'https://github.com/massCodeIO/massCode/issues/new/choose'
+        'https://github.com/WLongSAMA/CodeSnippets/issues/new/choose'
       )
     }
   },
   {
     label: i18n.t('menu:help.giveStar'),
     click: () => {
-      shell.openExternal('https://github.com/massCodeIO/massCode/stargazers')
+      shell.openExternal('https://github.com/WLongSAMA/CodeSnippets/stargazers')
     }
   },
   {

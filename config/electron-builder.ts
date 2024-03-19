@@ -21,9 +21,9 @@ if (isTestBuild) {
 }
 
 export default {
-  appId: 'io.masscode.app',
+  appId: 'io.codesnippets.app',
   artifactName,
-  productName: 'massCode',
+  productName: 'CodeSnippets',
   directories: {
     output: path.resolve(__dirname, '../../dist')
   },
@@ -32,7 +32,7 @@ export default {
     oneClick: false,
     perMachine: false,
     allowToChangeInstallationDirectory: true,
-    shortcutName: 'massCode'
+    shortcutName: 'CodeSnippets'
   },
   mac: {
     target: macTarget,
@@ -54,8 +54,8 @@ export default {
   },
   protocols: [
     {
-      name: 'massCode',
-      schemes: ['masscode']
+      name: 'CodeSnippets',
+      schemes: ['codesnippets']
     }
   ],
   files: [

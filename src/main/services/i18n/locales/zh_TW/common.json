@@ -43,7 +43,7 @@
   "sidebar": {
     "inbox": "暫存區",
     "favorites": "收藏夾",
-    "allSnippets": "所有的",
+    "allSnippets": "所有",
     "trash": "回收站",
     "untitled": "未命名資料夾",
     "folders": "資料夾",
@@ -52,7 +52,7 @@
   },
   "darkMode": "深色模式",
   "background": "背景",
-  "restartApp": "重啟 massCode",
+  "restartApp": "重啟",
   "updateAvailable": "存在新版本",
   "hide": "隱藏",
   "show": "顯示",

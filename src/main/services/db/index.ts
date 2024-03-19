@@ -82,7 +82,7 @@ export const isDbExist = (path: string) => {
 
 export const migrate = async (path: string) => {
   const files = await fs.readdir(path)
-  const migrateFiles = ['masscode.db', 'snippets.db', 'tags.db']
+  const migrateFiles = ['codesnippets.db', 'snippets.db', 'tags.db']
 
   const isFilesExist = migrateFiles
     .reduce((acc: boolean[], item) => {
@@ -111,7 +111,7 @@ export const migrate = async (path: string) => {
     })
   }
 
-  const masscodeJSON = await convertDBFileToJSON('masscode')
+  const masscodeJSON = await convertDBFileToJSON('codesnippets')
   const masscodeJSONList = nestedToFlat(masscodeJSON[0].list)
   const snippetsJSON = await convertDBFileToJSON('snippets')
   const tagsJSON = await convertDBFileToJSON('tags')

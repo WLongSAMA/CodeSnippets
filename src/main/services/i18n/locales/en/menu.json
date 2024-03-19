@@ -1,6 +1,6 @@
 {
   "app": {
-    "label": "massCode",
+    "label": "CodeSnippets",
     "preferences": "Preferences",
     "update": {
       "label": "Check for Updates....",
@@ -8,9 +8,9 @@
       "button": ["Go to Download", "OK"],
       "noUpdate": "There are currently no updates available."
     },
-    "quit": "Quit massCode",
-    "about": "About massCode",
-    "hide": "Hide massCode",
+    "quit": "Quit",
+    "about": "About",
+    "hide": "Hide",
     "hideOther": "Hide Others",
     "showAll": "Show All"
   },

@@ -243,7 +243,7 @@ const onClickContextMenu = async () => {
   }
 
   if (action === 'copy-snippet-link') {
-    const { copy } = useClipboard({ source: `masscode://snippets/${props.id}` })
+    const { copy } = useClipboard({ source: `codesnippets://snippets/${props.id}` })
     copy()
     track('snippets/copy-link')
   }

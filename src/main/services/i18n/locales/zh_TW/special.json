@@ -23,7 +23,7 @@
     "folderContainDb": "資料夾內已存在 \"db.json\"。",
     "folderNotContainDb": "資料夾內不存在 \"db.json\"。"
   },
-  "unsponsored": "未贊助的",
+  "unsponsored": "未贊助",
   "supportMessage": "Hi，我是 Anton 👋<br><br>\n感謝你使用 massCode 。如果你覺得這個應用很有幫助，請{{-tagStart}} 捐贈 {{-tagEnd}}。這將激勵我繼續開發這個專案。",
   "snippetsShowcase": "前端片段社群"
 }

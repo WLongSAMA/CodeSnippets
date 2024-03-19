@@ -1,6 +1,6 @@
 {
   "app": {
-    "label": "massCode",
+    "label": "CodeSnippets",
     "preferences": "設定",
     "update": {
       "label": "アップデートがあるか確認",
@@ -8,9 +8,9 @@
       "button": ["ダウンロードに進む", "OK"],
       "noUpdate": "アップデートはありません。"
     },
-    "quit": "massCodeを終了",
-    "about": "massCodeについて",
-    "hide": "massCodeを隠す",
+    "quit": "を終了",
+    "about": "について",
+    "hide": "を隠す",
     "hideOther": "他を隠す",
     "showAll": "すべて表示"
   },

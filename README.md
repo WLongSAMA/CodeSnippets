@@ -1,125 +1,103 @@
+<p align="center"><img src="./preview.png"></p>
+
+<h1 align="center">CodeSnippets</h1>
 
 <p align="center">
-  <img src="./preview.png">
-</p>
-
-<h1 align="center">massCode</h1>
-
-<p align="center">
-  <strong>Built with Electron, Vue & Codemirror.</strong>
+  <strong>使用 Electron、Vue 和 Codemirror 构建。</strong>
   <br>
-  Inspired by applications like SnippetsLab and Quiver.
-</p>
-
-
-<p align="center">
-  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/massCodeIO/massCode">
-  <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/massCodeIO/massCode/total">
-  <img alt="GitHub" src="https://img.shields.io/github/license/massCodeIO/massCode">
+  灵感来自 SnippetsLab、Quiver 和 massCode 等应用程序。
 </p>
 
 <p align="center">
-  <a href="https://github.com/massCodeIO/massCode/releases">Latest Release</a> |
-  <a href="https://masscode.io/documentation/">Documentation</a> |
-  <a href="https://github.com/massCodeIO/massCode/blob/master/CHANGELOG.md">Change Log</a>
+  <a href="https://gitee.com/a101084/CodeSnippets">Gitee 仓库地址</a> |
+  <a href="https://github.com/WLongSAMA/CodeSnippets">Github 仓库地址</a>
 </p>
 
-<p align="center">
-  Extensions:
-  <a href="https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant">VS Code</a> |
-  <a href="https://www.raycast.com/antonreshetov/masscode">Raycast</a> |
-  <a href="https://github.com/massCodeIO/assistant-alfred">Alfred</a>
-</p>
+## 简介
 
-<p align="center">
-  <strong>SPONSORS</strong>
-</p>
+CodeSnippets 是一款面向软件开发人员的代码片段管理工具，它基于另一个名为 [massCode](https://github.com/massCodeIO/massCode) 的开源项目。
 
-<p align="center">
-  <a href="https://m.do.co/c/f2bb3bfab2e6">
-    <img src='.github/assets/DO.svg'>
-  </a>
-  &nbsp;
-  <a href="https://mysigmail.com/?ref=github/massCodeIO">
-    <img src='.github/assets/MySigMail.svg'>
-  </a>
-</p>
+## CodeSnippets 与 massCode 的不同之处
 
-## Support
+1.更加完善的中文语言支持。
 
-massCode is open source project and completely free to use.
+2.优化程序配置文件的存放位置。
 
-However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support massCode development via the following methods:
+3.去除没有必要的功能。
 
-<div align="center">
+4.移除影响使用的捐助提示。
 
-[![Donate via Open Collective](https://img.shields.io/badge/donate-Open%20Collective-blue.svg?style=popout&logo=opencollective)](https://opencollective.com/masscode)
-[![Donate via PayPal](https://img.shields.io/badge/donate-PayPal-blue.svg?style=popout&logo=paypal)](https://paypal.me/antongithub)
-[![Donate via Ko-Fi](https://img.shields.io/badge/donate-Gumroad-blue?style=popout&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzNCAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGVsbGlwc2UgY3g9IjE5LjgyODciIGN5PSIxOS4xMzU5IiByeD0iMTQuMTcxNCIgcnk9IjEzLjY3NjUiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xNi4xNzE0IDI5Ljk0NjRDMjQuNDAzMiAyOS45NDY0IDMxLjEyNDEgMjMuNDk5NSAzMS4xMjQxIDE1LjQ4ODdDMzEuMTI0MSA3LjQ3OCAyNC40MDMyIDEuMDMxMDEgMTYuMTcxNCAxLjAzMTAxQzcuOTM5NyAxLjAzMTAxIDEuMjE4NzUgNy40NzggMS4yMTg3NSAxNS40ODg3QzEuMjE4NzUgMjMuNDk5NSA3LjkzOTcgMjkuOTQ2NCAxNi4xNzE0IDI5Ljk0NjRaIiBmaWxsPSIjRkY5MEU4IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNTYyNSIvPgo8cGF0aCBkPSJNMTUuMDQ2NyAyMi43ODI3QzEwLjg2MiAyMi43ODI3IDguNDAwMzkgMTkuNDAyNCA4LjQwMDM5IDE1LjE5NzZDOC40MDAzOSAxMC44Mjc5IDExLjEwODEgNy4yODI3MSAxNi4yNzc0IDcuMjgyNzFDMjEuNjEwOSA3LjI4MjcxIDIzLjQxNiAxMC45MTA0IDIzLjQ5ODEgMTIuOTcxNUgxOS42NDE2QzE5LjU1OTYgMTEuODE3MyAxOC41NzQ5IDEwLjA4NTkgMTYuMTk1NCAxMC4wODU5QzEzLjY1MTggMTAuMDg1OSAxMi4wMTA3IDEyLjMxMiAxMi4wMTA3IDE1LjAzMjdDMTIuMDEwNyAxNy43NTM1IDEzLjY1MTggMTkuOTc5NSAxNi4xOTU0IDE5Ljk3OTVDMTguNDkyOSAxOS45Nzk1IDE5LjQ3NzUgMTguMTY1NyAxOS44ODc4IDE2LjM1MTlIMTYuMTk1NFYxNC44Njc4SDIzLjk0MzJWMjIuNDUyOUgyMC41NDQyVjE3LjY3MUMyMC4yOTggMTkuNDAyNCAxOS4yMzEzIDIyLjc4MjcgMTUuMDQ2NyAyMi43ODI3WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==)](https://antonreshetov.gumroad.com/l/masscode)
+5.修复了一些小问题。
 
-</div>
+...
 
-## Features
-### Organization
-massCode allows you to organize snippets using multi-level folders as well as tags. Each snippet has fragments - tabs, which gives even greater level of organization.
+不管 CodeSnippets 以后如何改变，唯一不变的是永远开源和免费。
 
-### Editor
-massCode uses [Codemirror](https://github.com/codemirror/codemirror5) as the basis for the editor and `.tmLanguage` as the grammar for syntax highlighting. This tandem opens the door to over [600](https://github.com/github/linguist/blob/master/vendor/README.md) existing grammars. The application currently supports more than [160](https://github.com/massCodeIO/massCode/tree/master/src/renderer/components/editor) grammars. In addition to `.tmLanguage`, the application supports `.tmTheme` for themes. There is also support for [Prettier](https://prettier.io) for code formatting. 
+## 特性
 
-### Real-time Render for HTML & CSS
-You can not only collect snippets, but also see the rendering result for HTML and CSS in real time. Test the idea or just view the result.
+### 组织
+
+CodeSnippets 允许你使用多级文件夹和标签来组织代码片段。每个代码片段都支持子片段，这提供了更高级别的组织。
+
+### 编辑器
+
+CodeSnippets 使用 [Codemirror](https://github.com/codemirror/codemirror5) 作为编辑器的基础，`.tmLanguage` 作为代码高亮显示的语法。这种组合最多可以支持 [600](https://github.com/github/linguist/blob/master/vendor/README.md) 种语法高亮方案。该应用程序目前支持 [160](https://github.com/WLongSAMA/CodeSnippets/tree/master/src/renderer/components/editor) 多种编程语言。除了`.tmLanguage`，该应用程序还支持 `.tmTheme` 主题。此外，它还支持 [Prettier](https://prettier.io) 进行代码格式化。
+
+### 实时渲染 HTML 和 CSS
+
+你不仅可以收集代码片段，还可以实时查看 HTML 和 CSS 的渲染结果。测试想法或只是查看结果。
 
 ### Markdown
-massCode allows you to write in Markdown and provide support to syntax highlighting, tables, list and other formatting. Also massCode supports [Mermaid](https://mermaid-js.github.io/mermaid/#) - diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
 
-### Presentation Mode
+CodeSnippets 支持 Markdown 语法，并提供对语法高亮、表格、列表和其他格式的支持。此外，CodeSnippets 还支持 [Mermaid](https://mermaid-js.github.io/mermaid/#) - 图表绘制工具，可呈现受 Markdown 启发的文本定义以动态创建和修改图表。
 
-massCode allows you to make a presentation out of a sequence of snippets. It's great for classroom use, team meetings, conferences or simply reviewing notes on your own.
+### 演示模式
 
-### Mindmap
+CodeSnippets 允许你从一系列代码片段中制作演示文稿。它非常适合课堂使用、团队会议、会议或只是自己复习笔记。
 
-massCode allows you to create mental maps from markdown, making the process of creating and editing maps fast and intuitively understandable. It's a great way to organize and structure information visually.
+### 思维导图
 
-### Search
-It is impossible to imagine a productive snippets manager without quick access to snippets. Therefore massCode has a fast full-text search with highlighting of the search query.
+CodeSnippets 允许你从 Markdown 创建思维导图，使创建和编辑思维导图的过程快速且直观易懂。这是直观地组织和构建信息的好方法。
 
-### Autosave
-massCode automatically saves any changes you make during work, so you don't have to worry about losing changes.
+### 搜索
 
-### Sync
-You can use any service that provides cloud synchronization, such as iCloud Drive, Google Drive, Dropbox or other similar.
+无法想象一个不能高效访问特定内容的代码片段管理工具。因此，CodeSnippets 具有快速的全文搜索功能，并突出显示了搜索查询。
 
-### Database
-massCode uses a simple JSON to store your data. The database files are on your local computer.
+### 自动保存
 
-### Integrations
-massCode supports extensions for [VS Code](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant), [Raycast](https://www.raycast.com/antonreshetov/masscode) and [Alfred](https://github.com/massCodeIO/assistant-alfred), which gives even more possibilities to use application. With the VS Code extension you get practically zen mode, search for the necessary snippets and insert them immediately or save the selected code sections as a snippet.
+CodeSnippets 会自动保存您在工作期间所做的任何更改，因此您不必担心丢失更改。
 
-### Beautiful Screenshots
-Create beautiful snippet images on different backgrounds and in different modes
+### 同步
 
-### Developer Tools
-massCode provides developers with a range of convenient tools, such as:
--  Text tools: Case Converter, Slug Generator, Sort Lines, URL Parser
--  Cryptography & Security: Hash, HMAC, Password and UUID Generators
--  Encoders & Decoders: URL, Base64
+你可以使用任何提供云同步的服务，例如 iCloud Drive、Google Drive、Dropbox 或其他类似服务。
 
+### 数据库
 
-## Overview
+CodeSnippets 使用简单的 JSON 来存储你的数据。数据库文件位于本地计算机上。
 
-The goal of creating this application was mostly my own growth as a developer. Also, I wanted this project to absorb the best of such applications already on the market (both free and paid). At the same time, I wanted this project to be an open source project.
+### 集成
 
-## Follow
- - News and updates on [Twitter](https://twitter.com/anton_reshetov).
- - [Discussions](https://github.com/massCodeIO/massCode/discussions).
+CodeSnippets 与 massCode 的扩展相互兼容，支持 [VS Code](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant)、[Raycast](https://www.raycast.com/antonreshetov/masscode) 和 [Alfred](https://github.com/massCodeIO/assistant-alfred) 扩展，这为使用应用程序提供了更多可能性。使用 VS Code 扩展，你可以获得禅意模式，搜索必要的代码片段并立即插入它们，或将选定的代码片段另存为新的代码片段。
 
-![](.github/assets/subscribe.gif)
+### 漂亮的截图
 
-## Other
-You can also [download](https://github.com/antonreshetov/massCode) massCode v1.
+在不同的背景和不同的模式下创建精美的片段图像
 
-## License
+### 开发人员工具
 
-[AGPL-3.0](https://github.com/massCodeIO/massCode/blob/master/LICENSE)
+CodeSnippets 为开发人员提供了一系列方便的工具，例如：
+-  文本工具：大小写转换器、Slug 生成器、行排序、URL 解析器
+-  加密与安全：哈希、HMAC、密码和 UUID 生成器
+-  编码和解码：URL、Base64
 
-Copyright (c) 2019-present, [Anton Reshetov](https://github.com/antonreshetov).
+## 概况
+
+创建这个应用程序的目的主要是我作为开发人员自身的成长。此外，我希望这个项目能够吸收市场上已经存在的此类应用程序（包括免费和付费）中的最佳部分。同时，我希望这个项目是一个开源项目。
+
+## 许可证
+
+[AGPL-3.0](https://github.com/WLongSAMA/CodeSnippets/blob/master/LICENSE)
+
+massCode：Copyright (c) 2019-现在, [Anton Reshetov](https://github.com/antonreshetov).
+
+CodeSnippets：Copyright (c) 2024, [WLong](https://github.com/WLongSAMA/CodeSnippets).

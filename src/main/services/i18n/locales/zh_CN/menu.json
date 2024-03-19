@@ -1,6 +1,6 @@
 {
   "app": {
-    "label": "massCode",
+    "label": "CodeSnippets",
     "preferences": "首选项",
     "update": {
       "label": "检查更新…",
@@ -8,9 +8,9 @@
       "button": ["前往下载", "OK"],
       "noUpdate": "当前没有可用的更新。"
     },
-    "quit": "退出 massCode",
-    "about": "关于 massCode",
-    "hide": "最小化 massCode",
+    "quit": "退出",
+    "about": "关于",
+    "hide": "最小化",
     "hideOther": "最小化其它窗口",
     "showAll": "显示所有窗口"
   },

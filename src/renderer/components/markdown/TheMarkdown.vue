@@ -76,7 +76,7 @@ const init = () => {
       }
     },
     link (href: string, title: string, text: string) {
-      if (/^masscode:\/\/snippets/.test(href)) {
+      if (/^codesnippets:\/\/snippets/.test(href)) {
         const id = href.split('/').pop()
         return `<a href="${href}" class="snippet-link" data-snippet-id="${id}">${text}</a>`
       } else {
@@ -192,7 +192,7 @@ const render = () => {
         'data-*'
       ]
     },
-    allowedSchemes: ['http', 'https', 'masscode']
+    allowedSchemes: ['http', 'https', 'codesnippets']
   })
 
   const re = /src="\.\//g

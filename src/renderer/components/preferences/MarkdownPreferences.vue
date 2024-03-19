@@ -12,7 +12,7 @@
             href="#"
             @click="
               onClickUrl(
-                'https://github.com/massCodeIO/massCode/blob/master/src/renderer/components/editor/languages.ts'
+                'https://github.com/WLongSAMA/CodeSnippets/blob/master/src/renderer/components/editor/languages.ts'
               )
             "
           >{{ i18n.t('special:description.codeBlockRenderer.1') }}</a>.

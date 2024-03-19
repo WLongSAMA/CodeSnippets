@@ -64,12 +64,12 @@ const storeBounds = debounce((mainWindow: BrowserWindow) => {
 
 if (process.defaultApp) {
   if (process.argv.length >= 2) {
-    app.setAsDefaultProtocolClient('masscode', process.execPath, [
+    app.setAsDefaultProtocolClient('codesnippets', process.execPath, [
       path.resolve(process.argv[1])
     ])
   }
 } else {
-  app.setAsDefaultProtocolClient('masscode')
+  app.setAsDefaultProtocolClient('codesnippets')
 }
 
 app.whenReady().then(async () => {
@@ -99,7 +99,7 @@ app.on('second-instance', (e, argv) => {
   }
 
   if (process.platform !== 'darwin') {
-    const url = argv.find(i => i.startsWith('masscode://'))
+    const url = argv.find(i => i.startsWith('codesnippets://'))
     BrowserWindow.getFocusedWindow()?.webContents.send('main:app-protocol', url)
   }
 })

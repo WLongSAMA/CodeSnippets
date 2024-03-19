@@ -180,7 +180,7 @@ ipc.on('main:focus', () => {
 })
 
 ipc.on('main:app-protocol', (event, payload: string) => {
-  if (/^masscode:\/\/snippets/.test(payload)) {
+  if (/^codesnippets:\/\/snippets/.test(payload)) {
     const snippetId = payload.split('/').pop()
     if (snippetId) goToSnippet(snippetId, true)
   }
