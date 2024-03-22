@@ -16,12 +16,13 @@ import {
 } from '../../../renderer/components/editor/languages'
 import { snakeCase } from 'lodash'
 import type { LanguageOption, Language } from '@shared/types/renderer/editor'
+import i18n from '../i18n'
 
 const DB_NAME = 'db.json'
 
 const DEFAULT_FOLDER = {
   id: nanoid(8),
-  name: 'Default',
+  name: i18n.t('sidebar.default'),
   defaultLanguage: 'typescript',
   parentId: null,
   isOpen: false,

@@ -2,21 +2,32 @@
   "button": {
     "moveStorage": "更改儲存路徑",
     "openStorage": "開啟現有儲存",
+    "newStorage": "創建新的存儲",
+    "reloadStorage": "重新载入存储",
     "fromMassCodeV1": "來自 massCode v1.0",
     "fromSnippetsLab": "來自 SnippetsLab",
     "confirm": "確認",
     "cancel": "取消",
     "update": ["前往 GitHub", "OK"],
-    "ok": "OK"
+    "ok": "OK",
+    "clear": "清空",
+    "copy": "復製",
+    "sort": "正向排序",
+    "revers": "逆向排序",
+    "generate": "生成",
+    "saveAs": "另存為",
+    "zoomIn": "放大",
+    "zoomOut": "縮小",
+    "fit": "Fit"
   },
   "newFolder": "新建資料夾",
   "newSnippet": "新建程式碼片段",
   "newFragment": "新建子片段",
   "addDescription": "新增描述",
+  "addDescriptions": "請在此處填寫描述文本",
   "addToFavorites": "新增至收藏夾",
   "addTag": "新增標籤",
   "exportToHtml": "匯出 HTML 檔案",
-  "saveScreenshot": "儲存截圖",
   "rename": "重新命名",
   "duplicate": "建立副本",
   "delete": "刪除",
@@ -59,5 +70,6 @@
   "collapse-all": "全部展開",
   "expand-all": "全部摺疊",
   "restore": "回復",
-  "copy-snippet-link": "複製連結"
+  "copy-snippet-link": "複製連結",
+  "set-custom-icon": "設置自定義圖標"
 }

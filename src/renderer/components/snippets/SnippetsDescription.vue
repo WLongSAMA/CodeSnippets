@@ -10,7 +10,7 @@
         class="input"
         contenteditable="true"
         spellcheck="false"
-        placeholder="Add description"
+        :placeholder="i18n.t('addDescriptions')"
         @blur="onBlur"
       >
         {{ desc }}
@@ -22,8 +22,8 @@
 <script setup lang="ts">
 import { useAppStore } from '@/store/app'
 import { useSnippetStore } from '@/store/snippets'
-
 import { computed, nextTick, ref, watch } from 'vue'
+import { i18n } from '@/electron'
 
 const snippetStore = useSnippetStore()
 const appStore = useAppStore()

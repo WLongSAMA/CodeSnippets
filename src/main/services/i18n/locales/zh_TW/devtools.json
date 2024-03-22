@@ -1,0 +1,51 @@
+{
+  "form": {
+    "inputString": "輸入字符串",
+    "outputString": "輸出字符串",
+    "camelCase": "駝峰拼寫",
+    "kebab-case": "串式拼寫",
+    "snake_case": "蛇式拼寫",
+    "PascalCase": "帕斯卡拼寫",
+    "Start_Case": "首字大寫",
+    "lower_case": "全部小寫",
+    "UPPER_CASE": "全部大寫",
+    "inputUrl": "輸入 URL",
+    "outputUrl": "輸出 URL",
+    "parsedUrl": "解析 URL",
+    "splitQueryString": "拆分查詢字符串",
+    "key": "鍵",
+    "value": "值",
+    "component": "組成部分",
+    "result": "結果",
+    "secretKey": "密鑰信息",
+    "algorithm": "算法",
+    "version": "版本",
+    "amount": "數量",
+    "type": "類型",
+    "length": "長度",
+    "options": "選項",
+    "numbers": "數字",
+    "symbols": "符號",
+    "lowercase": "小寫字母",
+    "uppercase": "大寫字母"
+  },
+  "textTools": {
+    "label": "文本工具",
+    "caseConverter": "大小寫轉換",
+    "urlParser": "URL 解析",
+    "slugGenerator": "Slug 生成器",
+    "sortLines": "行排序"
+  },
+  "crypto": {
+    "label": "加密與安全",
+    "hashGenerator": "哈希生成器",
+    "hmacGenerator": "HMAC 生成器",
+    "passGenerator": "密碼生成器",
+    "uuidGenerator": "UUID 生成器"
+  },
+  "encodeDecode": {
+    "label": "編碼與解碼",
+    "url": "URL 編碼 / 解碼",
+    "base64": "Base64 編碼 / 解碼"
+  }
+}

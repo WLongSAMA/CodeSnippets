@@ -24,6 +24,7 @@
   "newSnippet": "New Snippet",
   "newFragment": "New Fragment",
   "addDescription": "Add Description",
+  "addDescriptions": "Please fill in the description text here",
   "addToFavorites": "Add to Favorites",
   "addTag": "Add Tag",
   "exportToHtml": "Export to HTML",
@@ -57,6 +58,7 @@
     "trash": "Trash",
     "untitled": "Untitled folder",
     "folders": "Folders",
+    "default": "Default",
     "library": "Library",
     "tags": "Tags"
   },

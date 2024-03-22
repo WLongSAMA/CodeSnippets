@@ -48,7 +48,9 @@
       "dateModified": "根据修改日期",
       "dateCreated": "根据创建日期",
       "name": "根据片段名"
-    }
+    },
+    "hideSubfolderSnippets": "隐藏子文件夹片段",
+    "compactMode": "紧凑模式"
   },
   "edit": {
     "label": "编辑",
@@ -67,6 +69,7 @@
     "previewCode": "预览 HTML 和 CSS",
     "previewScreenshot": "生成并预览代码截图",
     "previewMarkdown": "预览 Markdown",
+    "previewMindmap": "预览思维导图",
     "fontSizeIncrease": "增加字体大小",
     "fontSizeDecrease": "减小字体大小",
     "fontSizeReset": "重置字体大小"
@@ -80,5 +83,8 @@
     "label": "历史记录",
     "back": "后退",
     "forward": "前进"
+  },
+  "devtools": {
+    "label": "开发工具"
   }
 }

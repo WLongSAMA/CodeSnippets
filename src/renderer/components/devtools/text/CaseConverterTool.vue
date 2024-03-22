@@ -9,25 +9,25 @@
         />
         <template #actions>
           <AppButton @click="onClick('camelCase')">
-            camelCase
+            {{ i18n.t('devtools:form.camelCase') }}
           </AppButton>
           <AppButton @click="onClick('kebabCase')">
-            kebab-case
+            {{ i18n.t('devtools:form.kebab-case') }}
           </AppButton>
           <AppButton @click="onClick('snakeCase')">
-            snake_case
+            {{ i18n.t('devtools:form.snake_case') }}
           </AppButton>
           <AppButton @click="onClick('pascalCase')">
-            PascalCase
-          </AppButton>
-          <AppButton @click="onClick('lowerCase')">
-            lower case
+            {{ i18n.t('devtools:form.PascalCase') }}
           </AppButton>
           <AppButton @click="onClick('startCase')">
-            Start Case
+            {{ i18n.t('devtools:form.Start_Case') }}
+          </AppButton>
+          <AppButton @click="onClick('lowerCase')">
+            {{ i18n.t('devtools:form.lower_case') }}
           </AppButton>
           <AppButton @click="onClick('upperCase')">
-            UPPER CASE
+            {{ i18n.t('devtools:form.UPPER_CASE') }}
           </AppButton>
         </template>
       </AppFormItem>

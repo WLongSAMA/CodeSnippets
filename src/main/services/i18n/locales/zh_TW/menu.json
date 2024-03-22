@@ -48,7 +48,9 @@
       "dateModified": "修改日期",
       "dateCreated": "建立日期",
       "name": "片段名"
-    }
+    },
+    "hideSubfolderSnippets": "隱藏子文件夾片段",
+    "compactMode": "緊湊模式"
   },
   "edit": {
     "label": "編輯",
@@ -67,6 +69,7 @@
     "previewCode": "預覽 HTML 和 CSS",
     "previewScreenshot": "生成並預覽程式碼擷圖",
     "previewMarkdown": "預覽 Markdown",
+    "previewMindmap": "預覽思維導圖",
     "fontSizeIncrease": "增加字體大小",
     "fontSizeDecrease": "減少字體大小",
     "fontSizeReset": "重置字體大小"
@@ -80,5 +83,8 @@
     "label": "歷史記錄",
     "back": "回上一頁",
     "forward": "到下一頁"
+  },
+  "devtools": {
+    "label": "開發工具"
   }
 }

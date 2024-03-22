@@ -2,6 +2,13 @@
   "form": {
     "inputString": "Input String",
     "outputString": "Output String",
+    "camelCase": "camelCase",
+    "kebab-case": "kebab-case",
+    "snake_case": "snake_case",
+    "PascalCase": "PascalCase",
+    "Start_Case": "Start Case",
+    "lower_case": "lower case",
+    "UPPER_CASE": "UPPER CASE",
     "inputUrl": "Input URL",
     "outputUrl": "Output URL",
     "parsedUrl": "Parsed URL",
