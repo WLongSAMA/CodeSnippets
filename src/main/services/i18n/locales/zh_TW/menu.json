@@ -16,26 +16,9 @@
   },
   "help": {
     "label": "幫助",
-    "website": "訪問官網",
-    "documentation": "訪問文件",
     "viewInGitHub": "訪問 GitHub",
-    "changeLog": "更新日誌",
-    "reportIssue": "提交 Issue",
-    "giveStar": "給個 Star",
-    "extension": {
-      "vscode": "VS Code 外掛",
-      "raycast": "Raycast 外掛",
-      "alfred": "Alfred 外掛"
-    },
-    "donate": {
-      "openCollective": "透過 Open Collective 捐贈",
-      "payPal": "透過 PayPal 捐贈"
-    },
-    "twitter": "訪問作者 Twitter",
-    "devTools": "開發人員工具",
-    "links": {
-      "snippets": "程式碼片段分享站"
-    }
+    "viewInGitee": "訪問 Gitee",
+    "devTools": "開發人員工具"
   },
   "file": {
     "label": "檔案",
@@ -68,6 +51,7 @@
     "format": "格式化",
     "previewCode": "預覽 HTML 和 CSS",
     "previewScreenshot": "生成並預覽程式碼擷圖",
+    "previewPPT": "預覽幻燈片",
     "previewMarkdown": "預覽 Markdown",
     "previewMindmap": "預覽思維導圖",
     "fontSizeIncrease": "增加字體大小",

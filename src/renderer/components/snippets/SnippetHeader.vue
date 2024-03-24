@@ -12,7 +12,7 @@
       <div class="action">
         <AppActionButton
           v-if="snippetStore.currentLanguage === 'markdown'"
-          v-tooltip="i18n.t('menu:editor.previewMarkdown')"
+          v-tooltip="i18n.t('menu:editor.previewPPT')"
           tabindex="-1"
           @click="onClickPresentationMode"
         >

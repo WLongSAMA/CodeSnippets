@@ -16,27 +16,9 @@
   },
   "help": {
     "label": "Help",
-    "website": "Website",
-    "documentation": "Documentation",
     "viewInGitHub": "View in GitHub",
-    "changeLog": "Change Log",
-    "reportIssue": "Report Issue",
-    "giveStar": "Give a Star",
-    "extension": {
-      "vscode": "VS Code Extension",
-      "raycast": "Raycast Extension",
-      "alfred": "Alfred Extension"
-    },
-    "donate": {
-      "openCollective": "Donate on Open Collective",
-      "payPal": "Donate via PayPal",
-      "gumroad": "Donate via Gumroad (Visa, Mastercard, etc.)"
-    },
-    "twitter": "Twitter",
-    "devTools": "Toggle Developer Tools",
-    "links": {
-      "snippets": "Snippet Collection"
-    }
+    "viewInGitee": "View in Gitee",
+    "devTools": "Toggle Developer Tools"
   },
   "file": {
     "label": "File",
@@ -69,6 +51,7 @@
     "format": "Format",
     "previewCode": "Preview Code",
     "previewScreenshot": "Preview Screenshot",
+    "previewPPT": "Preview Slides",
     "previewMarkdown": "Preview Markdown",
     "previewMindmap": "Preview Mindmap",
     "fontSizeIncrease": "Font Size Increase",

@@ -31,6 +31,6 @@ export const checkForUpdateWithInterval = () => {
   checkForUpdate()
 
   setInterval(() => {
-    checkForUpdate()
+  checkForUpdate()
   }, 1000 * 60 * 360) // 6 часов
 }

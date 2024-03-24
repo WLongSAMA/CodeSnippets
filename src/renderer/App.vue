@@ -6,14 +6,6 @@
   <RouterView />
   <div class="top-notification">
     <span
-      v-if="!appStore.isSponsored && !isUpdateAvailable"
-      class="unsponsored"
-    >
-      <span v-if="!isDev">
-        {{ i18n.t('special:unsponsored') }}
-      </span>
-    </span>
-    <span
       v-if="isUpdateAvailable"
       class="update"
       @click="onClickUpdate"
@@ -49,10 +41,6 @@ import type { Snippet } from '@shared/types/main/db'
 import { loadWASM } from 'onigasm'
 import onigasmFile from 'onigasm/lib/onigasm.wasm?url'
 import { loadGrammars } from '@/components/editor/grammars'
-import {
-  useSupportNotification,
-  checkForRemoteNotification
-} from '@/composable/notification'
 
 // По какой то причине необходимо явно установить роут в '/'
 // для корректного поведения в продакшен сборке
@@ -62,8 +50,6 @@ router.push('/')
 const appStore = useAppStore()
 const snippetStore = useSnippetStore()
 const route = useRoute()
-
-const { showSupportToast } = useSupportNotification()
 
 const isUpdateAvailable = ref(false)
 const isDev = import.meta.env.DEV
@@ -103,7 +89,6 @@ const init = async () => {
   }
 
   trackAppUpdate()
-  checkForRemoteNotification()
 }
 
 const setTheme = (theme: string) => {
@@ -113,7 +98,7 @@ const setTheme = (theme: string) => {
 const onClickUpdate = () => {
   ipc.invoke(
     'main:open-url',
-    'https://masscode.io/download/latest-release.html'
+    'https://github.com/WLongSAMA/CodeSnippets/releases'
   )
   track('app/update')
 }
@@ -171,12 +156,6 @@ watch(
 
 ipc.on('main:update-available', () => {
   isUpdateAvailable.value = true
-})
-
-ipc.on('main:focus', () => {
-  // Yes, this is that annoying piece of crap code.
-  // You can delete it, but know that you hurt me.
-  showSupportToast()
 })
 
 ipc.on('main:app-protocol', (event, payload: string) => {

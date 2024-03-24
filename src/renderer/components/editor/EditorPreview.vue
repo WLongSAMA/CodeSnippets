@@ -12,12 +12,6 @@
         />
       </div>
       <div class="right">
-        <div
-          class="link"
-          @click="onClickSnippetShowcase"
-        >
-          {{ i18n.t('special:snippetsShowcase') }}
-        </div>
         <AppActionButton
           v-tooltip="i18n.t('exportToHtml')"
           @click="onSaveToHtml"
@@ -120,11 +114,6 @@ const onSaveToHtml = async () => {
   a.href = `data:text/plain;charset=utf-8, ${encodeURIComponent(formatted)}`
   a.download = `${snippetStore.selected?.name}.html`
   a.click()
-}
-
-const onClickSnippetShowcase = () => {
-  ipc.invoke('main:open-url', 'https://masscode.io/snippets')
-  track('app/open-url', 'https://masscode.io/snippets')
 }
 
 watch(escape, () => {

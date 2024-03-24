@@ -23,6 +23,8 @@ const aboutApp = () => {
       Node.js: ${process.versions.node}
       V8: ${process.versions.v8}
       OS: ${os.type()} ${os.arch()} ${os.release()}
+
+      ©2024 WLong <a1010841065@126.com>
       ©2019-${year} Anton Reshetov <reshetov.art@gmail.com>
     `
   })
@@ -71,7 +73,7 @@ MenuItemConstructorOptions
         )
 
         if (buttonId === 0) {
-          shell.openExternal('https://masscode.io/download/latest-release.html')
+          shell.openExternal('https://github.com/WLongSAMA/CodeSnippets/releases')
         }
       } else {
         dialog.showMessageBoxSync(BrowserWindow.getFocusedWindow()!, {
@@ -144,24 +146,6 @@ const helpMenu: MenuItemConstructorOptions[] = [
     click: () => aboutApp()
   },
   {
-    label: i18n.t('menu:help.website'),
-    click: () => {
-      shell.openExternal('https://masscode.io')
-    }
-  },
-  {
-    label: i18n.t('menu:help.documentation'),
-    click: () => {
-      shell.openExternal('https://masscode.io/documentation')
-    }
-  },
-  {
-    label: i18n.t('menu:help.twitter'),
-    click: () => {
-      shell.openExternal('https://twitter.com/anton_reshetov')
-    }
-  },
-  {
     type: 'separator'
   },
   {
@@ -171,78 +155,9 @@ const helpMenu: MenuItemConstructorOptions[] = [
     }
   },
   {
-    label: i18n.t('menu:help.changeLog'),
+    label: i18n.t('menu:help.viewInGitee'),
     click: () => {
-      shell.openExternal(
-        'https://github.com/massCodeIO/massCode/blob/master/CHANGELOG.md'
-      )
-    }
-  },
-  {
-    label: i18n.t('menu:help.reportIssue'),
-    click: () => {
-      shell.openExternal(
-        'https://github.com/WLongSAMA/CodeSnippets/issues/new/choose'
-      )
-    }
-  },
-  {
-    label: i18n.t('menu:help.giveStar'),
-    click: () => {
-      shell.openExternal('https://github.com/WLongSAMA/CodeSnippets/stargazers')
-    }
-  },
-  {
-    type: 'separator'
-  },
-  {
-    label: i18n.t('menu:help.extension.vscode'),
-    click: () => {
-      shell.openExternal(
-        'https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant'
-      )
-    }
-  },
-  {
-    label: i18n.t('menu:help.extension.raycast'),
-    click: () => {
-      shell.openExternal('https://www.raycast.com/antonreshetov/masscode')
-    }
-  },
-  {
-    label: i18n.t('menu:help.extension.alfred'),
-    click: () => {
-      shell.openExternal('https://github.com/massCodeIO/assistant-alfred')
-    }
-  },
-  {
-    type: 'separator'
-  },
-  {
-    label: i18n.t('menu:help.links.snippets'),
-    click: () => {
-      shell.openExternal('https://masscode.io/snippets')
-    }
-  },
-  {
-    type: 'separator'
-  },
-  {
-    label: i18n.t('menu:help.donate.openCollective'),
-    click: () => {
-      shell.openExternal('https://opencollective.com/masscode')
-    }
-  },
-  {
-    label: i18n.t('menu:help.donate.gumroad'),
-    click: () => {
-      shell.openExternal('https://antonreshetov.gumroad.com/l/masscode')
-    }
-  },
-  {
-    label: i18n.t('menu:help.donate.payPal'),
-    click: () => {
-      shell.openExternal('https://www.paypal.com/paypalme/antongithub')
+      shell.openExternal('https://gitee.com/a101084/CodeSnippets')
     }
   },
   {

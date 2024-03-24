@@ -12,7 +12,7 @@ const notarizing = async (context: AfterPackContext) => {
   const appName = context.packager.appInfo.productFilename
 
   return await notarize({
-    appBundleId: 'io.masscode.app',
+    appBundleId: 'io.codesnippets.app',
     appPath: `${appOutDir}/${appName}.app`,
     appleId: process.env.APPLE_ID!,
     appleIdPassword: process.env.APPLE_ID_PASSWORD!

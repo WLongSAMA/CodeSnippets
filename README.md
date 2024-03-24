@@ -15,7 +15,7 @@
 
 ## 简介
 
-CodeSnippets 是一款面向软件开发人员的代码片段管理工具，它基于另一个名为 [massCode](https://github.com/massCodeIO/massCode) 的开源项目。
+CodeSnippets 是一款面向软件开发人员的代码片段管理工具，它基于另一个名为 [massCode](https://github.com/massCodeIO/massCode) 的开源项目，massCode 是一款很棒的代码片段管理工具，如果没有它就不会有 CodeSnippets，欢迎向 massCode 提供捐助。
 
 ## CodeSnippets 与 massCode 的不同之处
 
@@ -23,11 +23,9 @@ CodeSnippets 是一款面向软件开发人员的代码片段管理工具，它�
 
 2.优化程序配置文件的存放位置。
 
-3.去除没有必要的功能。
+3.去除没有必要的 UI 元素。
 
-4.移除影响使用的捐助提示。
-
-5.修复了一些小问题。
+4.修复了一些小问题。
 
 ...
 
@@ -90,14 +88,15 @@ CodeSnippets 为开发人员提供了一系列方便的工具，例如：
 -  加密与安全：哈希、HMAC、密码和 UUID 生成器
 -  编码和解码：URL、Base64
 
-## 概况
+## 请注意
 
-创建这个应用程序的目的主要是我作为开发人员自身的成长。此外，我希望这个项目能够吸收市场上已经存在的此类应用程序（包括免费和付费）中的最佳部分。同时，我希望这个项目是一个开源项目。
+本项目对于 massCode 的修改操作并没有对原开发者进行任何告知，但原项目基于 AGPL 协议，我的所有修改均依照协议开源。所以，如果我收到原开发者的反对意见，我会及时删除相关代码。但您无需担心，此项目一旦废弃，我会考虑重新开发一套新的程序来取代这个项目。
 
 ## 许可证
 
 [AGPL-3.0](https://github.com/WLongSAMA/CodeSnippets/blob/master/LICENSE)
 
+CodeSnippets：Copyright (c) 2024, [WLong](https://github.com/WLongSAMA/CodeSnippets).
+
 massCode：Copyright (c) 2019-现在, [Anton Reshetov](https://github.com/antonreshetov).
 
-CodeSnippets：Copyright (c) 2024, [WLong](https://github.com/WLongSAMA/CodeSnippets).
