@@ -11,48 +11,48 @@ const pathSrc = path.resolve(__dirname, '../../src/renderer')
 const pathOut = path.resolve(__dirname, '../renderer')
 
 export default defineConfig({
-  root: pathSrc,
-  publicDir: 'public',
-  server: {
-    port: 8080,
-    open: false
-  },
-  build: {
-    outDir: pathOut,
-    emptyOutDir: true,
-    target: 'esnext'
-  },
-  define: {
-    // прокладка для pseudomap при билде
-    'process.env.TEST_PSEUDOMAP': {}
-  },
-  plugins: [
-    vuePlugin(),
-    AutoImport({
-      dts: `${pathSrc}/types/auto-imports.d.ts`
-    }),
-    Components({
-      dts: `${pathSrc}/types/components.d.ts`,
-      dirs: [`${pathSrc}/components`],
-      resolvers: [
-        IconsResolver({
-          prefix: '',
-          customCollections: ['unicons', 'svg']
+    root: pathSrc,
+    publicDir: 'public',
+    server: {
+        port: 8080,
+        open: false
+    },
+    build: {
+        outDir: pathOut,
+        emptyOutDir: true,
+        target: 'esnext'
+    },
+    define: {
+        // прокладка для pseudomap при билде
+        'process.env.TEST_PSEUDOMAP': {}
+    },
+    plugins: [
+        vuePlugin(),
+        AutoImport({
+            dts: `${pathSrc}/types/auto-imports.d.ts`
+        }),
+        Components({
+            dts: `${pathSrc}/types/components.d.ts`,
+            dirs: [`${pathSrc}/components`],
+            resolvers: [
+                IconsResolver({
+                    prefix: '',
+                    customCollections: ['unicons', 'svg']
+                })
+            ]
+        }),
+        Icons({
+            customCollections: {
+                unicons: FileSystemIconLoader(
+                    './node_modules/@iconscout/unicons/svg/line'
+                ),
+                svg: FileSystemIconLoader(pathSrc + '/assets/svg')
+            }
         })
-      ]
-    }),
-    Icons({
-      customCollections: {
-        unicons: FileSystemIconLoader(
-          './node_modules/@iconscout/unicons/svg/line'
-        ),
-        svg: FileSystemIconLoader(pathSrc + '/assets/svg')
-      }
-    })
-  ],
-  resolve: {
-    alias: {
-      '@': pathSrc
+    ],
+    resolve: {
+        alias: {
+            '@': pathSrc
+        }
     }
-  }
 })

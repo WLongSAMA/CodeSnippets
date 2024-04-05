@@ -1,78 +1,53 @@
 <template>
-  <div
-    class="presentation"
-    @mousemove="onHover"
-  >
-    <div class="header">
-      <AppActionButton
-        v-tooltip="i18n.t('close')"
-        class="action"
-        :class="{ show: showActions }"
-        @click="toHome"
-      >
-        <UniconsTimes />
-      </AppActionButton>
-    </div>
-    <div class="body">
-      <TheMarkdown
-        :scale="scale"
-        :value="snippetStore.currentContent!"
-      />
-    </div>
-    <div class="footer">
-      <div
-        class="actions"
-        :class="{ show: showActions }"
-      >
-        <AppActionButton @click="onFullscreen">
-          <UniconsExpandAlt
-            v-if="!isFullscreen"
-            width="24px"
-            height="24px"
-          />
-          <UniconsCompressAlt
-            v-else
-            width="24px"
-            height="24px"
-          />
-        </AppActionButton>
-        <div class="nav">
-          <AppActionButton @click="onPrevSlide">
-            <UniconsArrowLeft
-              width="24px"
-              height="24px"
-            />
-          </AppActionButton>
-          <AppActionButton @click="onNextSlide">
-            <UniconsArrowRight
-              width="24px"
-              height="24px"
-            />
-          </AppActionButton>
+    <div class="presentation" @mousemove="onHover">
+        <div class="header">
+            <AppActionButton
+                v-tooltip="i18n.t('close')"
+                class="action"
+                :class="{ show: showActions }"
+                @click="toHome"
+            >
+                <UniconsTimes />
+            </AppActionButton>
         </div>
-        <div class="scale">
-          <AppActionButton @click="onMinusScale">
-            <UniconsMinus
-              width="24px"
-              height="24px"
-            />
-          </AppActionButton>
-          <div class="factor">
-            {{ scale }}
-          </div>
-          <AppActionButton @click="onPlusScale">
-            <UniconsPlus
-              width="24px"
-              height="24px"
-            />
-          </AppActionButton>
+        <div class="body">
+            <TheMarkdown :scale="scale" :value="snippetStore.currentContent!" />
         </div>
-        <div class="count">
-          {{ currentIndex + 1 }} / {{ slideIds.length }}
+        <div class="footer">
+            <div class="actions" :class="{ show: showActions }">
+                <AppActionButton @click="onFullscreen">
+                    <UniconsExpandAlt
+                        v-if="!isFullscreen"
+                        width="24px"
+                        height="24px"
+                    />
+                    <UniconsCompressAlt v-else width="24px" height="24px" />
+                </AppActionButton>
+                <div class="nav">
+                    <AppActionButton @click="onPrevSlide">
+                        <UniconsArrowLeft width="24px" height="24px" />
+                    </AppActionButton>
+                    <AppActionButton @click="onNextSlide">
+                        <UniconsArrowRight width="24px" height="24px" />
+                    </AppActionButton>
+                </div>
+                <div class="scale">
+                    <AppActionButton @click="onMinusScale">
+                        <UniconsMinus width="24px" height="24px" />
+                    </AppActionButton>
+                    <div class="factor">
+                        {{ scale }}
+                    </div>
+                    <AppActionButton @click="onPlusScale">
+                        <UniconsPlus width="24px" height="24px" />
+                    </AppActionButton>
+                </div>
+                <div class="count">
+                    {{ currentIndex + 1 }} / {{ slideIds.length }}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -91,70 +66,70 @@ const { left, right, escape } = useMagicKeys()
 const { isFullscreen, toggle } = useFullscreen()
 
 const slideIds = snippetStore.snippets
-  .filter(i => i.content[0].language === 'markdown')
-  .map(i => i.id)
+    .filter((i) => i.content[0].language === 'markdown')
+    .map((i) => i.id)
 const currentIndex = computed(() =>
-  snippetStore.snippets.findIndex(i => i.id === snippetStore.selectedId)
+    snippetStore.snippets.findIndex((i) => i.id === snippetStore.selectedId)
 )
 
 const showActions = ref(false)
 const scale = computed({
-  get: () => appStore.markdown.presentationScale,
-  set: v => {
-    appStore.markdown.presentationScale = Number(v.toFixed(1))
-    store.preferences.set('markdown', { ...appStore.markdown })
-  }
+    get: () => appStore.markdown.presentationScale,
+    set: (v) => {
+        appStore.markdown.presentationScale = Number(v.toFixed(1))
+        store.preferences.set('markdown', { ...appStore.markdown })
+    }
 })
 const toHome = () => {
-  router.push('/')
+    router.push('/')
 }
 
 const onPrevSlide = () => {
-  const prevId = slideIds[currentIndex.value - 1]
-  if (prevId) {
-    snippetStore.getSnippetsById(prevId)
-  }
+    const prevId = slideIds[currentIndex.value - 1]
+    if (prevId) {
+        snippetStore.getSnippetsById(prevId)
+    }
 }
 
 const onNextSlide = () => {
-  const nextId = slideIds[currentIndex.value + 1]
-  if (nextId) {
-    snippetStore.getSnippetsById(nextId)
-  }
+    const nextId = slideIds[currentIndex.value + 1]
+    if (nextId) {
+        snippetStore.getSnippetsById(nextId)
+    }
 }
 
 const onMinusScale = () => {
-  if (scale.value.toFixed(1) === '1.0') return
-  scale.value -= 0.1
+    if (scale.value.toFixed(1) === '1.0') return
+    scale.value -= 0.1
 }
 
 const onPlusScale = () => {
-  scale.value += 0.1
+    scale.value += 0.1
 }
 
 const onFullscreen = () => {
-  toggle()
+    toggle()
 }
 
 const hideActions = useDebounceFn(() => {
-  showActions.value = false
+    showActions.value = false
 }, 2000)
 
 const onHover = () => {
-  showActions.value = true
-  hideActions()
+    showActions.value = true
+    hideActions()
 }
 
-watch(left, v => {
-  if (v) onPrevSlide()
+watch(left, (v) => {
+    if (v) onPrevSlide()
 })
 
-watch(right, v => {
-  if (v) onNextSlide()
+watch(right, (v) => {
+    if (v) onNextSlide()
 })
 
-watch(escape, v => {
-  if (v) toHome()
+watch(escape, (v) => {
+    if (v) toHome()
 })
 
 track('presentation')
@@ -162,56 +137,56 @@ track('presentation')
 
 <style lang="scss" scoped>
 .presentation {
-  margin-top: var(--title-bar-height);
+    margin-top: var(--title-bar-height);
 }
 .header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 var(--spacing-xs);
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 var(--spacing-xs);
 }
 .body {
-  padding: var(--spacing-sm) var(--spacing-xl);
-  display: grid;
-  :deep(h1) {
-    border-bottom: none;
-  }
+    padding: var(--spacing-sm) var(--spacing-xl);
+    display: grid;
+    :deep(h1) {
+        border-bottom: none;
+    }
 }
 
 .footer {
-  position: absolute;
-  left: var(--spacing-sm);
-  bottom: var(--spacing-sm);
-  .actions {
-    align-items: center;
-    display: flex;
-    gap: var(--spacing-sm);
-    opacity: 0;
-    transition: opacity 0.3s;
-    &:hover {
-      opacity: 1;
+    position: absolute;
+    left: var(--spacing-sm);
+    bottom: var(--spacing-sm);
+    .actions {
+        align-items: center;
+        display: flex;
+        gap: var(--spacing-sm);
+        opacity: 0;
+        transition: opacity 0.3s;
+        &:hover {
+            opacity: 1;
+        }
+        &.show {
+            opacity: 1;
+        }
+        .nav {
+            display: flex;
+        }
+        .scale {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            .factor {
+                width: 20px;
+                text-align: center;
+            }
+        }
     }
-    &.show {
-      opacity: 1;
-    }
-    .nav {
-      display: flex;
-    }
-    .scale {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      .factor {
-        width: 20px;
-        text-align: center;
-      }
-    }
-  }
 }
 .action {
-  opacity: 0;
-  transition: opacity 0.3s;
-  &.show {
-    opacity: 1;
-  }
+    opacity: 0;
+    transition: opacity 0.3s;
+    &.show {
+        opacity: 1;
+    }
 }
 </style>

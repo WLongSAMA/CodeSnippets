@@ -1,9 +1,9 @@
 <template>
-  <div class="markdown markdown-body">
-    <PerfectScrollbar>
-      <div v-html="renderedHtml" />
-    </PerfectScrollbar>
-  </div>
+    <div class="markdown markdown-body">
+        <PerfectScrollbar>
+            <div v-html="renderedHtml" />
+        </PerfectScrollbar>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -23,18 +23,18 @@ import { useMagicKeys } from '@vueuse/core'
 const isDev = import.meta.env.DEV
 
 interface Props {
-  value: string
-  scale?: number
+    value: string
+    scale?: number
 }
 
 interface Editors {
-  id: string
-  value: string
-  lang: string
+    id: string
+    value: string
+    lang: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  scale: 1
+    scale: 1
 })
 
 const appStore = useAppStore()
@@ -46,278 +46,275 @@ const renderedHtml = ref()
 const editors: Editors[] = []
 
 const forceRefresh = ref()
-const preTagBg = computed(() =>
-  appStore.isLightTheme ? '#fff' : 'var(--color-contrast-high)'
-)
 const fontFamily = computed(() => appStore.editor.fontFamily)
 
 const init = () => {
-  const renderer: marked.RendererObject = {
-    code (code: string, lang: string) {
-      if (lang === 'mermaid') {
-        return `<div class="mermaid">${code}</div><br>`
-      } else {
-        if (appStore.markdown.codeRenderer === 'highlight.js') {
-          const language = hljs.getLanguage(lang) ? lang : 'plaintext'
-          return `<pre><code class="language-${lang}">${
-            hljs.highlight(code, { language }).value
-          }</code></pre>`
-        } else {
-          const id = nanoid(6)
+    const renderer: marked.RendererObject = {
+        code(code: string, lang: string) {
+            if (lang === 'mermaid') {
+                return `<div class="mermaid">${code}</div><br>`
+            } else {
+                if (appStore.markdown.codeRenderer === 'highlight.js') {
+                    const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+                    return `<pre><code class="language-${lang}">${
+                        hljs.highlight(code, { language }).value
+                    }</code></pre>`
+                } else {
+                    const id = nanoid(6)
 
-          editors.push({
-            id,
-            value: code,
-            lang
-          })
+                    editors.push({
+                        id,
+                        value: code,
+                        lang
+                    })
 
-          return `<div id="${id}"></div>`
+                    return `<div id="${id}"></div>`
+                }
+            }
+        },
+        link(href: string, title: string, text: string) {
+            if (/^codesnippets:\/\/snippets/.test(href)) {
+                const id = href.split('/').pop()
+                return `<a href="${href}" class="snippet-link" data-snippet-id="${id}">${text}</a>`
+            } else {
+                return `<a href="${href}" class="external">${text}</a>`
+            }
         }
-      }
-    },
-    link (href: string, title: string, text: string) {
-      if (/^codesnippets:\/\/snippets/.test(href)) {
-        const id = href.split('/').pop()
-        return `<a href="${href}" class="snippet-link" data-snippet-id="${id}">${text}</a>`
-      } else {
-        return `<a href="${href}" class="external">${text}</a>`
-      }
     }
-  }
 
-  marked.use({ renderer })
+    marked.use({ renderer })
 }
 
 const initMermaid = () => {
-  try {
-    mermaid.initialize({
-      // @ts-ignore
-      theme: appStore.theme.match(/^dark/) ? 'dark' : 'default',
-      startOnLoad: true
-    })
-    mermaid.init('.mermaid')
-  } catch (err) {}
+    try {
+        mermaid.initialize({
+            // @ts-ignore
+            theme: appStore.theme.match(/^dark/) ? 'dark' : 'default',
+            startOnLoad: true
+        })
+        mermaid.init('.mermaid')
+    } catch (err) {}
 }
 
 onMounted(() => {
-  render()
+    render()
 })
 
 const render = () => {
-  if (!props.value) return
+    if (!props.value) return
 
-  const raw = marked.parse(props.value)
+    const raw = marked.parse(props.value)
 
-  let html = sanitizeHtml(raw, {
-    allowedTags: [
-      'h1',
-      'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
-      'h7',
-      'h8',
-      'br',
-      'b',
-      'i',
-      'strong',
-      'em',
-      'a',
-      'pre',
-      'code',
-      'img',
-      'tt',
-      'div',
-      'ins',
-      'del',
-      'sup',
-      'sub',
-      'p',
-      'ol',
-      'ul',
-      'table',
-      'thead',
-      'tbody',
-      'tfoot',
-      'blockquote',
-      'dl',
-      'dt',
-      'dd',
-      'kbd',
-      'q',
-      'samp',
-      'var',
-      'hr',
-      'ruby',
-      'rt',
-      'rp',
-      'li',
-      'tr',
-      'td',
-      'th',
-      's',
-      'strike',
-      'summary',
-      'details',
-      'caption',
-      'figure',
-      'figcaption',
-      'abbr',
-      'bdo',
-      'cite',
-      'dfn',
-      'mark',
-      'small',
-      'span',
-      'time',
-      'wbr',
-      'input'
-    ],
-    allowedAttributes: {
-      '*': [
-        'align',
-        'alt',
-        'height',
-        'href',
-        'name',
-        'src',
-        'target',
-        'width',
-        'class',
-        'type',
-        'checked',
-        'disabled',
-        'id',
-        'data-*'
-      ]
-    },
-    allowedSchemes: ['http', 'https', 'codesnippets']
-  })
+    let html = sanitizeHtml(raw, {
+        allowedTags: [
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'h7',
+            'h8',
+            'br',
+            'b',
+            'i',
+            'strong',
+            'em',
+            'a',
+            'pre',
+            'code',
+            'img',
+            'tt',
+            'div',
+            'ins',
+            'del',
+            'sup',
+            'sub',
+            'p',
+            'ol',
+            'ul',
+            'table',
+            'thead',
+            'tbody',
+            'tfoot',
+            'blockquote',
+            'dl',
+            'dt',
+            'dd',
+            'kbd',
+            'q',
+            'samp',
+            'var',
+            'hr',
+            'ruby',
+            'rt',
+            'rp',
+            'li',
+            'tr',
+            'td',
+            'th',
+            's',
+            'strike',
+            'summary',
+            'details',
+            'caption',
+            'figure',
+            'figcaption',
+            'abbr',
+            'bdo',
+            'cite',
+            'dfn',
+            'mark',
+            'small',
+            'span',
+            'time',
+            'wbr',
+            'input'
+        ],
+        allowedAttributes: {
+            '*': [
+                'align',
+                'alt',
+                'height',
+                'href',
+                'name',
+                'src',
+                'target',
+                'width',
+                'class',
+                'type',
+                'checked',
+                'disabled',
+                'id',
+                'data-*'
+            ]
+        },
+        allowedSchemes: ['http', 'https', 'codesnippets']
+    })
 
-  const re = /src="\.\//g
-  const path = store.preferences.get('storagePath')
+    const re = /src="\.\//g
+    const path = store.preferences.get('storagePath')
 
-  html = isDev
-    ? html.replace(re, `src="file://${path}/`)
-    : html.replace(re, `src="${path}/`)
+    html = isDev
+        ? html.replace(re, `src="file://${path}/`)
+        : html.replace(re, `src="${path}/`)
 
-  renderedHtml.value = html
+    renderedHtml.value = html
 
-  nextTick(() => initMermaid())
+    nextTick(() => initMermaid())
 }
 
 const onLink = async (e: Event) => {
-  const el = e.target as HTMLAnchorElement
-  e.preventDefault()
+    const el = e.target as HTMLAnchorElement
+    e.preventDefault()
 
-  if (el.classList.contains('external')) {
-    ipc.invoke('main:open-url', el.href)
-  }
+    if (el.classList.contains('external')) {
+        ipc.invoke('main:open-url', el.href)
+    }
 
-  if (el.classList.contains('snippet-link')) {
-    const { snippetId } = el.dataset
-    if (snippetId) goToSnippet(snippetId, true)
-  }
+    if (el.classList.contains('snippet-link')) {
+        const { snippetId } = el.dataset
+        if (snippetId) goToSnippet(snippetId, true)
+    }
 }
 
 const height = computed(() => {
-  // eslint-disable-next-line no-unused-expressions
-  forceRefresh.value
+    // eslint-disable-next-line no-unused-expressions
+    forceRefresh.value
 
-  let result =
-    appStore.sizes.editor.titleHeight +
-    appStore.sizes.titlebar +
-    appStore.sizes.editor.footerHeight
+    let result =
+        appStore.sizes.editor.titleHeight +
+        appStore.sizes.titlebar +
+        appStore.sizes.editor.footerHeight
 
-  if (snippetStore.isFragmentsShow) {
-    result += appStore.sizes.editor.fragmentsHeight
-  }
+    if (snippetStore.isFragmentsShow) {
+        result += appStore.sizes.editor.fragmentsHeight
+    }
 
-  if (snippetStore.isTagsShow) {
-    result += appStore.sizes.editor.tagsHeight
-  }
+    if (snippetStore.isTagsShow) {
+        result += appStore.sizes.editor.tagsHeight
+    }
 
-  return window.innerHeight - result + 'px'
+    return window.innerHeight - result + 'px'
 })
 
 watch(
-  () => appStore.isLightTheme,
-  v => {
-    if (v) {
-      useHljsTheme('light')
-    } else {
-      useHljsTheme('dark')
-    }
-  },
-  { immediate: true }
+    () => appStore.isLightTheme,
+    (v) => {
+        if (v) {
+            useHljsTheme('light')
+        } else {
+            useHljsTheme('dark')
+        }
+    },
+    { immediate: true }
 )
 
 watch(renderedHtml, () => {
-  nextTick(() => {
-    editors.forEach(i => {
-      useCodemirror(i.id, {
-        value: i.value,
-        mode: i.lang
-      })
+    nextTick(() => {
+        editors.forEach((i) => {
+            useCodemirror(i.id, {
+                value: i.value,
+                mode: i.lang
+            })
+        })
     })
-  })
 })
 
 watch(
-  () => props.value,
-  () => {
-    render()
-  }
+    () => props.value,
+    () => {
+        render()
+    }
 )
 
 watch(escape, () => {
-  snippetStore.isMarkdownPreview = false
+    snippetStore.isMarkdownPreview = false
 })
 
 init()
 
 onMounted(() => {
-  document.addEventListener('click', onLink)
+    document.addEventListener('click', onLink)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', onLink)
+    document.removeEventListener('click', onLink)
 })
 
 window.addEventListener('resize', () => {
-  forceRefresh.value = Math.random()
+    forceRefresh.value = Math.random()
 })
 </script>
 
 <style lang="scss" scoped>
 .markdown {
-  padding: 0 var(--spacing-xs);
-  &-body {
-    --scale: v-bind(props.scale);
-  }
-  :deep(h1, h2, h3, h4, h5, h6) {
-    &:first-child {
-      margin-top: 0;
+    padding: 0 var(--spacing-xs);
+    &-body {
+        --scale: v-bind(props.scale);
     }
-  }
-  :deep(.ps) {
-    height: v-bind(height);
-  }
-  :deep(.CodeMirror) {
-    height: 100%;
-    padding: var(--spacing-xs);
-    font-size: 0.85em;
-    font-family: v-bind(fontFamily);
-  }
-  :deep(.CodeMirror-line) {
-    padding: 0 var(--spacing-sm);
-    &:first-child {
-      padding-top: var(--spacing-xs);
+    :deep(h1, h2, h3, h4, h5, h6) {
+        &:first-child {
+            margin-top: 0;
+        }
     }
-    &:last-child {
-      padding-bottom: var(--spacing-xs);
+    :deep(.ps) {
+        height: v-bind(height);
     }
-  }
+    :deep(.CodeMirror) {
+        height: 100%;
+        padding: var(--spacing-xs);
+        font-size: 0.85em;
+        font-family: v-bind(fontFamily);
+    }
+    :deep(.CodeMirror-line) {
+        padding: 0 var(--spacing-sm);
+        &:first-child {
+            padding-top: var(--spacing-xs);
+        }
+        &:last-child {
+            padding-bottom: var(--spacing-xs);
+        }
+    }
 }
 </style>

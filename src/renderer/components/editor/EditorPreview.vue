@@ -1,38 +1,32 @@
 <template>
-  <div
-    ref="previewRef"
-    class="editor-preview"
-  >
-    <div class="tools">
-      <div class="left">
-        <AppCheckbox
-          v-model="appStore.codePreview.darkMode"
-          name="Dark mode"
-          :label="i18n.t('darkMode')"
-        />
-      </div>
-      <div class="right">
-        <AppActionButton
-          v-tooltip="i18n.t('exportToHtml')"
-          @click="onSaveToHtml"
-        >
-          <UniconsFileDownload />
-        </AppActionButton>
-      </div>
+    <div ref="previewRef" class="editor-preview">
+        <div class="tools">
+            <div class="left">
+                <AppCheckbox
+                    v-model="appStore.codePreview.darkMode"
+                    name="Dark mode"
+                    :label="i18n.t('darkMode')"
+                />
+            </div>
+            <div class="right">
+                <AppActionButton
+                    v-tooltip="i18n.t('exportToHtml')"
+                    @click="onSaveToHtml"
+                >
+                    <UniconsFileDownload />
+                </AppActionButton>
+            </div>
+        </div>
+        <div class="body">
+            <iframe
+                :srcDoc="srcDoc"
+                frameborder="0"
+                height="100%"
+                width="100%"
+            />
+        </div>
+        <div ref="gutterRef" class="gutter-line-horizontal" />
     </div>
-    <div class="body">
-      <iframe
-        :srcDoc="srcDoc"
-        frameborder="0"
-        height="100%"
-        width="100%"
-      />
-    </div>
-    <div
-      ref="gutterRef"
-      class="gutter-line-horizontal"
-    />
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -41,7 +35,6 @@ import { computed, ref, onMounted, watch } from 'vue'
 import interact from 'interactjs'
 import { useAppStore } from '@/store/app'
 import { i18n, ipc } from '@/electron'
-import { track } from '@/services/analytics'
 import { useMagicKeys } from '@vueuse/core'
 
 const snippetStore = useSnippetStore()
@@ -55,29 +48,29 @@ const previewRef = ref()
 const gutterRef = ref()
 
 snippetStore.$subscribe(() => {
-  setSrcDoc()
+    setSrcDoc()
 })
 
 watch(
-  () => appStore.codePreview.darkMode,
-  () => {
-    setSrcDoc()
-  }
+    () => appStore.codePreview.darkMode,
+    () => {
+        setSrcDoc()
+    }
 )
 
 const setSrcDoc = () => {
-  const html = snippetStore.selected?.content.find(
-    i => i.language === 'html'
-  )?.value
-  const css = snippetStore.selected?.content.find(
-    i => i.language === 'css'
-  )?.value
+    const html = snippetStore.selected?.content.find(
+        (i) => i.language === 'html'
+    )?.value
+    const css = snippetStore.selected?.content.find(
+        (i) => i.language === 'css'
+    )?.value
 
-  const htmlDefault = `<div>${i18n.t(
-    'special:description.htmlCssPreview'
-  )}</div>`
-  const bg = appStore.codePreview.darkMode ? 'background: #263238;' : ''
-  const cssDefault = `
+    const htmlDefault = `<div>${i18n.t(
+        'special:description.htmlCssPreview'
+    )}</div>`
+    const bg = appStore.codePreview.darkMode ? 'background: #263238;' : ''
+    const cssDefault = `
     body {
       display: flex;
       align-items: center;
@@ -88,7 +81,7 @@ const setSrcDoc = () => {
     }
   `
 
-  srcDoc.value = `<!DOCTYPE html>
+    srcDoc.value = `<!DOCTYPE html>
   <html>
     <head>
     <meta charset="UTF-8">
@@ -104,58 +97,60 @@ const setSrcDoc = () => {
 setSrcDoc()
 
 const onSaveToHtml = async () => {
-  const formatted = await ipc.invoke('main:prettier', {
-    source: srcDoc.value,
-    parser: 'html'
-  })
+    const formatted = await ipc.invoke('main:prettier', {
+        source: srcDoc.value,
+        parser: 'html'
+    })
 
-  const a = document.createElement('a')
+    const a = document.createElement('a')
 
-  a.href = `data:text/plain;charset=utf-8, ${encodeURIComponent(formatted)}`
-  a.download = `${snippetStore.selected?.name}.html`
-  a.click()
+    a.href = `data:text/plain;charset=utf-8, ${encodeURIComponent(formatted)}`
+    a.download = `${snippetStore.selected?.name}.html`
+    a.click()
 }
 
 watch(escape, () => {
-  snippetStore.isCodePreview = false
+    snippetStore.isCodePreview = false
 })
 
 onMounted(() => {
-  interact(previewRef.value).resizable({
-    edges: { top: true },
-    onmove: e => {
-      const { pageY } = e
-      appStore.sizes.codePreviewHeight = Math.floor(window.innerHeight - pageY)
-    }
-  })
+    interact(previewRef.value).resizable({
+        edges: { top: true },
+        onmove: (e) => {
+            const { pageY } = e
+            appStore.sizes.codePreviewHeight = Math.floor(
+                window.innerHeight - pageY
+            )
+        }
+    })
 })
 </script>
 
 <style lang="scss" scoped>
 .editor-preview {
-  position: relative;
-  .body {
-    height: calc(v-bind(height) - 34px);
-  }
-  .tools {
-    display: flex;
-    height: 34px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px var(--spacing-xs);
-    border-bottom: 1px solid var(--color-border);
-    .right {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      .button {
-        cursor: default;
-      }
+    position: relative;
+    .body {
+        height: calc(v-bind(height) - 34px);
     }
-  }
-  iframe {
-    background-color: #fff;
-  }
+    .tools {
+        display: flex;
+        height: 34px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px var(--spacing-xs);
+        border-bottom: 1px solid var(--color-border);
+        .right {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            .button {
+                cursor: default;
+            }
+        }
+    }
+    iframe {
+        background-color: #fff;
+    }
 }
 </style>

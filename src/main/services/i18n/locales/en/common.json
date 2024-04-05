@@ -72,5 +72,7 @@
   "expand-all": "Expand All",
   "restore": "Restore",
   "copy-snippet-link": "Copy Snippet Link",
-  "set-custom-icon": "Set Custom Icon"
+  "set-custom-icon": "Set Custom Icon",
+  "isDbExist": "Folder already contains db file. Please select another folder.",
+  "isFilesExist": "DB files not exist in this folder."
 }

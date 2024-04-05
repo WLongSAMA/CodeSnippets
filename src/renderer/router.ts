@@ -7,10 +7,10 @@ import Devtools from './views/Devtools.vue'
 
 const history = createWebHistory()
 const routes: RouteRecordRaw[] = [
-  { path: '/', component: Main },
-  { path: '/preferences', component: Preferences },
-  { path: '/presentation', component: Presentation },
-  { path: '/devtools', component: Devtools }
+    { path: '/', component: Main },
+    { path: '/preferences', component: Preferences },
+    { path: '/presentation', component: Presentation },
+    { path: '/devtools', component: Devtools }
 ]
 
 const router = createRouter({ history, routes })

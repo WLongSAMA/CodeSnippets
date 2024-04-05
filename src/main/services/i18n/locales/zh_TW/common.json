@@ -71,5 +71,7 @@
   "expand-all": "全部摺疊",
   "restore": "回復",
   "copy-snippet-link": "複製連結",
-  "set-custom-icon": "設置自定義圖標"
+  "set-custom-icon": "設置自定義圖標",
+  "isDbExist": "文件夾已包含數據庫文件。請選擇其他文件夾。",
+  "isFilesExist": "此文件夾中不存在數據庫文件。"
 }

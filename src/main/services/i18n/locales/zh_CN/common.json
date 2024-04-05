@@ -72,5 +72,7 @@
   "expand-all": "全部折叠",
   "restore": "还原",
   "copy-snippet-link": "复制链接",
-  "set-custom-icon": "设置自定义图标"
+  "set-custom-icon": "设置自定义图标",
+  "isDbExist": "文件夹已包含数据库文件。请选择其他文件夹。",
+  "isFilesExist": "此文件夹中不存在数据库文件。"
 }

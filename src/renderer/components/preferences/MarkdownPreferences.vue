@@ -1,25 +1,25 @@
 <template>
-  <div class="language-preferences">
-    <AppForm>
-      <AppFormItem :label="i18n.t('preferences:markdown.codeRenderer')">
-        <AppSelect
-          v-model="renderer"
-          :options="rendererOptions"
-        />
-        <template #desc>
-          {{ i18n.t('special:description.codeBlockRenderer.0') }}
-          <a
-            href="#"
-            @click="
-              onClickUrl(
-                'https://github.com/WLongSAMA/CodeSnippets/blob/master/src/renderer/components/editor/languages.ts'
-              )
-            "
-          >{{ i18n.t('special:description.codeBlockRenderer.1') }}</a>.
-        </template>
-      </AppFormItem>
-    </AppForm>
-  </div>
+    <div class="language-preferences">
+        <AppForm>
+            <AppFormItem :label="i18n.t('preferences:markdown.codeRenderer')">
+                <AppSelect v-model="renderer" :options="rendererOptions" />
+                <template #desc>
+                    {{ i18n.t('special:description.codeBlockRenderer.0') }}
+                    <a
+                        href="#"
+                        @click="
+                            onClickUrl(
+                                'https://github.com/WLongSAMA/CodeSnippets/blob/master/src/renderer/components/editor/languages.ts'
+                            )
+                        "
+                        >{{
+                            i18n.t('special:description.codeBlockRenderer.1')
+                        }}</a
+                    >.
+                </template>
+            </AppFormItem>
+        </AppForm>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -31,22 +31,22 @@ import { onClickUrl } from '@/composable'
 const appStore = useAppStore()
 
 const renderer = computed({
-  get: () => appStore.markdown.codeRenderer,
-  set: v => {
-    appStore.markdown.codeRenderer = v
-    store.preferences.set('markdown', { ...appStore.markdown })
-  }
+    get: () => appStore.markdown.codeRenderer,
+    set: (v) => {
+        appStore.markdown.codeRenderer = v
+        store.preferences.set('markdown', { ...appStore.markdown })
+    }
 })
 
 const rendererOptions = [
-  {
-    label: 'Codemirror',
-    value: 'codemirror'
-  },
-  {
-    label: 'Highlight.js',
-    value: 'highlight.js'
-  }
+    {
+        label: 'Codemirror',
+        value: 'codemirror'
+    },
+    {
+        label: 'Highlight.js',
+        value: 'highlight.js'
+    }
 ]
 </script>
 

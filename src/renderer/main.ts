@@ -11,8 +11,8 @@ import 'floating-vue/dist/style.css'
 import '@/components/ui/folder-icons/icons'
 
 createApp(App)
-  .use(createPinia())
-  .use(router)
-  .use(PerfectScrollbar)
-  .use(FloatingVue)
-  .mount('#app')
+    .use(createPinia())
+    .use(router)
+    .use(PerfectScrollbar)
+    .use(FloatingVue)
+    .mount('#app')

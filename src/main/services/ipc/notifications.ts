@@ -2,17 +2,20 @@ import type { NotificationRequest } from '@shared/types/main'
 import { ipcMain, Notification } from 'electron'
 
 export const subscribeToNotification = () => {
-  if (!Notification.isSupported()) return
+    if (!Notification.isSupported()) return
 
-  ipcMain.handle<NotificationRequest>('main:notification', (event, payload) => {
-    return new Promise(resolve => {
-      const { body } = payload
-      const notification = new Notification({
-        title: 'CodeSnippets',
-        body
-      })
-      notification.show()
-      resolve()
-    })
-  })
+    ipcMain.handle<NotificationRequest>(
+        'main:notification',
+        (event, payload) => {
+            return new Promise((resolve) => {
+                const { body } = payload
+                const notification = new Notification({
+                    title: 'CodeSnippets',
+                    body
+                })
+                notification.show()
+                resolve()
+            })
+        }
+    )
 }

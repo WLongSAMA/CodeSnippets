@@ -5,11 +5,11 @@ export type Tab = 'library' | 'tags'
 export type SystemFolderAlias = 'inbox' | 'favorites' | 'trash' | 'all'
 
 export interface Tabs {
-  label: string
-  value: Tab
+    label: string
+    value: Tab
 }
 
 export interface SidebarSystemFolder extends Partial<Folder> {
-  icon: FunctionalComponent
-  alias: SystemFolderAlias
+    icon: FunctionalComponent
+    alias: SystemFolderAlias
 }

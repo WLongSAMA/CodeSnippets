@@ -1,9 +1,9 @@
 <template>
-  <div class="main">
-    <TheSidebar />
-    <SnippetList />
-    <SnippetsView />
-  </div>
+    <div class="main">
+        <TheSidebar />
+        <SnippetList />
+        <SnippetsView />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -25,41 +25,41 @@ const sidebarWidth = computed(() => appStore.sizes.sidebar + 'px')
 const snippetListWidth = computed(() => appStore.sizes.snippetList + 'px')
 
 const init = async () => {
-  const storedFolderId = store.app.get('selectedFolderId')
-  const storedFolderAlias = store.app.get('selectedFolderAlias')
-  const storedSnippetId = store.app.get('selectedSnippetId')
+    const storedFolderId = store.app.get('selectedFolderId')
+    const storedFolderAlias = store.app.get('selectedFolderAlias')
+    const storedSnippetId = store.app.get('selectedSnippetId')
 
-  await folderStore.getFolders()
-  await snippetStore.getSnippets()
-  await tagStore.getTags()
+    await folderStore.getFolders()
+    await snippetStore.getSnippets()
+    await tagStore.getTags()
 
-  if (storedSnippetId) {
-    snippetStore.setSnippetById(storedSnippetId)
-    appStore.addToHistory(storedSnippetId)
-  } else {
-    appStore.addToHistory(snippetStore.snippets[0]?.id)
-  }
+    if (storedSnippetId) {
+        snippetStore.setSnippetById(storedSnippetId)
+        appStore.addToHistory(storedSnippetId)
+    } else {
+        appStore.addToHistory(snippetStore.snippets[0]?.id)
+    }
 
-  if (storedFolderId) {
-    folderStore.selectId(storedFolderId)
-    await snippetStore.setSnippetsByFolderIds()
-  }
+    if (storedFolderId) {
+        folderStore.selectId(storedFolderId)
+        await snippetStore.setSnippetsByFolderIds()
+    }
 
-  if (storedFolderAlias) {
-    snippetStore.setSnippetsByAlias(storedFolderAlias)
-  }
+    if (storedFolderAlias) {
+        snippetStore.setSnippetsByAlias(storedFolderAlias)
+    }
 
-  emitter.emit('scroll-to:folder', folderStore.selectedId!)
+    emitter.emit('scroll-to:folder', folderStore.selectedId!)
 
-  appStore.isInit = true
+    appStore.isInit = true
 }
 
 const addDevtoolsHost = () => {
-  if (import.meta.env.DEV) {
-    const s = document.createElement('script')
-    s.src = 'http://localhost:8098'
-    document.head.appendChild(s)
-  }
+    if (import.meta.env.DEV) {
+        const s = document.createElement('script')
+        s.src = 'http://localhost:8098'
+        document.head.appendChild(s)
+    }
 }
 
 addDevtoolsHost()
@@ -69,23 +69,23 @@ track('main')
 
 <style scoped lang="scss">
 .main {
-  display: grid;
-  height: 100vh;
-  background-color: var(--color-bg);
-  overflow: hidden;
-  grid-template-columns: v-bind(sidebarWidth) v-bind(snippetListWidth) 1fr;
+    display: grid;
+    height: 100vh;
+    background-color: var(--color-bg);
+    overflow: hidden;
+    grid-template-columns: v-bind(sidebarWidth) v-bind(snippetListWidth) 1fr;
 }
 .update-available {
-  position: absolute;
-  top: 2px;
-  right: var(--spacing-xs);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-text);
-  &:hover {
-    text-decoration: underline;
-  }
-  z-index: 1020;
+    position: absolute;
+    top: 2px;
+    right: var(--spacing-xs);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text);
+    &:hover {
+        text-decoration: underline;
+    }
+    z-index: 1020;
 }
 </style>

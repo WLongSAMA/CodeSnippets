@@ -1,19 +1,13 @@
 <template>
-  <div class="language-preferences">
-    <AppFormItem :label="i18n.t('preferences:language.label')">
-      <AppSelect
-        v-model="localValue"
-        :options="options"
-      />
+    <div class="language-preferences">
+        <AppFormItem :label="i18n.t('preferences:language.label')">
+            <AppSelect v-model="localValue" :options="options" />
 
-      <AppButton
-        v-if="isChanged"
-        @click="onReload"
-      >
-        {{ i18n.t('restartApp') }}
-      </AppButton>
-    </AppFormItem>
-  </div>
+            <AppButton v-if="isChanged" @click="onReload">
+                {{ i18n.t('restartApp') }}
+            </AppButton>
+        </AppFormItem>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -29,29 +23,29 @@ const storedValue = ref(appStore.language)
 const isChanged = ref(false)
 
 const localValue = computed({
-  get: () => appStore.language,
-  set: v => {
-    if (v !== storedValue.value) {
-      isChanged.value = true
-    } else {
-      isChanged.value = false
+    get: () => appStore.language,
+    set: (v) => {
+        if (v !== storedValue.value) {
+            isChanged.value = true
+        } else {
+            isChanged.value = false
+        }
+        appStore.setLang(v)
+        track('app/set-language', v)
     }
-    appStore.setLang(v)
-    track('app/set-language', v)
-  }
 })
 
 const options: { label: string; value: string }[] = []
 
 Object.entries(language).forEach(([k, v]) => {
-  options.push({
-    label: v,
-    value: k
-  })
+    options.push({
+        label: v,
+        value: k
+    })
 })
 
 const onReload = () => {
-  ipc.invoke('main:restart', {})
+    ipc.invoke('main:restart', {})
 }
 </script>
 
