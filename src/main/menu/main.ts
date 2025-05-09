@@ -442,6 +442,14 @@ const historyMenu: MenuItemConstructorOptions[] = [
     }
 ]
 
+const windowMenu: MenuItemConstructorOptions[] = [
+    {
+        label: i18n.t('menu:window.minimize'),
+        accelerator: 'CommandOrControl+M',
+        role: 'minimize'
+    }
+]
+
 const menuItems: MenuItemConstructorOptions[] = [
     {
         label: i18n.t('menu:app.label'),
@@ -470,6 +478,10 @@ const menuItems: MenuItemConstructorOptions[] = [
     {
         label: i18n.t('menu:history.label'),
         submenu: historyMenu
+    },
+    {
+        label: i18n.t('menu:window.label'),
+        submenu: windowMenu
     },
     {
         label: i18n.t('menu:help.label'),

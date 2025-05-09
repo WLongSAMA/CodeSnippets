@@ -1,9 +1,7 @@
 <template>
     <div class="folder" @dblclick="isEdit = true" @keypress="onKyePress">
-        <div v-if="!isEdit" class="name">
-            {{ name }}
-        </div>
-        <input v-else ref="inputRef" v-model="localName" type="text" />
+    <div v-if="!isEdit" class="name">
+      <div>{{ name }}</div>
     </div>
 </template>
 
@@ -72,5 +70,14 @@ onUnmounted(() => {
 }
 .name {
     user-select: none;
+    display: table;
+    table-layout: fixed;
+    width: 90%;
+    overflow: hidden;
+    > div {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 }
 </style>
